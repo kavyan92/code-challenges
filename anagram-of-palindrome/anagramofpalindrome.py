@@ -29,6 +29,18 @@ Examples::
 
 def is_anagram_of_palindrome(word):
     """Is the word an anagram of a palindrome?"""
+    temp = []
+
+    for letter in word:
+        if letter in temp:
+            temp.remove(letter)
+        else:
+            temp.append(letter)
+    
+    if len(temp) > 1:
+        return False
+    else:
+        return True
 
     # counter = {}
     # for letter in word:
@@ -50,16 +62,18 @@ def is_anagram_of_palindrome(word):
     # return True
 
 
-    counter = {}
-    for letter in word:
-        counter[letter] = counter.get(letter, 0) + 1
-    seen_an_odd = False
-    for value in counter.values():
-        if value % 2 != 0:
-            if seen_an_odd == True:
-                return False
-            seen_an_odd = True
-    return True
+    # counter = {}
+    # for letter in word:
+    #     counter[letter] = counter.get(letter, 0) + 1
+    # seen_an_odd = False
+    # for value in counter.values():
+    #     if value % 2 != 0:
+    #         if seen_an_odd == True:
+    #             return False
+    #         seen_an_odd = True
+    # return True
+
+
 
 
 if __name__ == '__main__':
